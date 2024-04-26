@@ -1,0 +1,79 @@
+-- Create a table to store players
+players = {}
+
+-- Function to update players
+function update_players()
+    -- Clear the table
+    players = {}
+
+    -- Loop through all players in the game
+    for i = 1, game.Players:GetPlayers() do
+        -- Add the player to the table
+        table.insert(players, game.Players:GetPlayer(i))
+    end
+end
+
+-- Function to make the player super sayajin
+function make_super_sayajin(player)
+    -- Create a new humanoid
+    local humanoid = player.Character:WaitForChild("Humanoid")
+
+    -- Set the humanoid's walk speed
+    humanoid.WalkSpeed = 50
+
+    -- Set the humanoid's max health
+    humanoid.MaxHealth = 1000
+
+    -- Set the humanoid's health
+    humanoid.Health = 1000
+
+    -- Set the player's display name
+    player.DisplayName = "Super Sayajin "..player.Name
+
+    -- Set the player's appearance
+    player.Character.Head.face.Texture = "rbxassetid://123456789"
+    player.Character.UpperTorso.Shirt.Texture = "rbxassetid://123456789"
+    player.Character.LowerTorso.Pants.Texture = "rbxassetid://123456789"
+end
+
+-- Function to farm level fast
+function farm_level_fast(player)
+    -- Make the player super sayajin
+    make_super_sayajin(player)
+
+    -- Loop through all NPCs
+    for i = 1, game.Workspace:GetChildren() do
+        -- Check if the NPC is an enemy
+        if game.Workspace[i]:IsA("Model") and game.Workspace[i].Humanoid and game.Workspace[i].Humanoid.Health > 0 then
+            -- Attack the enemy
+            player.Character.Humanoid:Attack(game.Workspace[i].Humanoid)
+        end
+    end
+end
+
+-- Function to farm NPCs
+function farm_npc(player)
+    -- Make the player super sayajin
+    make_super_sayajin(player)
+
+    -- Loop through all NPCs
+    for i = 1, game.Workspace:GetChildren() do
+        -- Check if the NPC is an enemy
+        if game.Workspace[i]:IsA("Model") and game.Workspace[i].Humanoid and game.Workspace[i].Humanoid.Health > 0 then
+            -- Get the NPC's position
+            local position = game.Workspace[i].HumanoidRootPart.Position
+
+            -- Move the player to the NPC's position
+            player.Character.HumanoidRootPart.Position = position
+        end
+    end
+end
+
+-- Function to draw ESP
+function draw_esp()
+    -- Loop through all NPCs
+    for i = 1, game.Workspace:GetChildren() do
+        -- Check if the NPC is an enemy
+        if game.Workspace[i]:IsA("Model") and game.Workspace[i].Humanoid and game.Workspace[i].Humanoid.Health > 0 then
+            -- Get the NPC's position
+            local position = game.Workspace[i].HumanoidRoot
